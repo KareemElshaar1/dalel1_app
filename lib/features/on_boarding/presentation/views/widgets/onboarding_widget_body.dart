@@ -1,7 +1,7 @@
 import 'package:dalel_app/core/utils/app_text_style.dart';
+import 'package:dalel_app/features/on_boarding/data/models/on_boarding%20_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/app_assets.dart';
 import 'custom_smooth_page_widget.dart';
 
 class OnboardingWidgetBody extends StatelessWidget {
@@ -15,17 +15,20 @@ class OnboardingWidgetBody extends StatelessWidget {
       height: 500,
       child: PageView.builder(
         physics: const BouncingScrollPhysics(),
+        // smooth indicator
         controller: _pageController,
-        itemCount: 3,
+
+        itemCount: onBoardingData.length,
         itemBuilder: (context, index) {
           return Column(
             children: [
+              // image
               Container(
                 height: 290,
                 width: 343,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage(Assets.imagesOnBoarding1),
+                  image: AssetImage(onBoardingData[index].imagePath),
                   fit: BoxFit.fill,
                 )),
               ),
@@ -39,7 +42,7 @@ class OnboardingWidgetBody extends StatelessWidget {
                 height: 32,
               ),
               Text(
-                "Explore The history with Dalel in a smart way",
+                onBoardingData[index].title,
                 style: CustomTextStyles.poppins500style24
                     .copyWith(fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
@@ -49,8 +52,8 @@ class OnboardingWidgetBody extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              const Text(
-                "Explore The history with Dalel in a smart way",
+              Text(
+                onBoardingData[index].subTitle,
                 style: CustomTextStyles.poppins300style16,
                 textAlign: TextAlign.center,
                 maxLines: 2,

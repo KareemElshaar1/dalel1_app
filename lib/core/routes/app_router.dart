@@ -1,3 +1,5 @@
+import 'package:dalel_app/features/auth/presentation/views/sign_in.dart';
+import 'package:dalel_app/features/auth/presentation/views/sign_up.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/on_boarding/presentation/views/onboarding_view.dart';
@@ -10,6 +12,14 @@ final GoRouter router = GoRouter(routes: [
   ),
   GoRoute(
     path: "/onBoarding",
-    builder: (context, state) => const OnBoardingView(),
+    builder: (context, state) => OnBoardingView(),
+  ),
+  GoRoute(
+    path: "/signup",
+    builder: (context, state) => SignUpView(),
+  ),
+  GoRoute(
+    path: "/signIn",
+    builder: (context, state) => SignInView(),
   )
 ]);

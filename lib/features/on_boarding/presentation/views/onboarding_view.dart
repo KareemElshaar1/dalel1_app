@@ -12,11 +12,13 @@ class OnBoardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             const SizedBox(height: 40),
             const CustomNaveBar(),
             OnboardingWidgetBody(),
+            SizedBox(height: 180),
             const CustomButton(
               text: AppStrings.next,
             ),

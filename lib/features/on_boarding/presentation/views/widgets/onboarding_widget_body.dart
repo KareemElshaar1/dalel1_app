@@ -11,14 +11,24 @@ class OnboardingWidgetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 500,
       child: PageView.builder(
+        physics: const BouncingScrollPhysics(),
         controller: _pageController,
         itemCount: 3,
         itemBuilder: (context, index) {
           return Column(
             children: [
-              Image.asset(Assets.imagesOnBoarding1),
+              Container(
+                height: 290,
+                width: 343,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage(Assets.imagesOnBoarding1),
+                  fit: BoxFit.fill,
+                )),
+              ),
               const SizedBox(
                 height: 24,
               ),
@@ -28,26 +38,23 @@ class OnboardingWidgetBody extends StatelessWidget {
               const SizedBox(
                 height: 32,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Column(
-                  children: [
-                    Text(
-                      "Explore The history with Dalel in a smart way",
-                      style: CustomTextStyles.poppins500style24
-                          .copyWith(fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const Text(
-                      "Explore The history with Dalel in a smart way",
-                      style: CustomTextStyles.poppins300style16,
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                ),
+              Text(
+                "Explore The history with Dalel in a smart way",
+                style: CustomTextStyles.poppins500style24
+                    .copyWith(fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              const Text(
+                "Explore The history with Dalel in a smart way",
+                style: CustomTextStyles.poppins300style16,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               )
             ],
           );

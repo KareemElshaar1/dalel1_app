@@ -1,3 +1,4 @@
+import 'package:dalel_app/features/on_boarding/presentation/views/funcutions/on_boarding.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/functions/navigation.dart';
@@ -7,8 +8,7 @@ import '../../../../../core/widgets/custom_btn.dart';
 import '../../../data/models/on_boarding _model.dart';
 
 class GetFinalButton extends StatelessWidget {
-  const GetFinalButton(
-      {super.key, required this.currentIndex, required this.controller});
+  const GetFinalButton({super.key, required this.currentIndex, required this.controller});
 
   final int currentIndex;
   final PageController controller;
@@ -21,11 +21,13 @@ class GetFinalButton extends StatelessWidget {
           CustomButton(
             text: AppStrings.createAccount,
             onPressed: () {
+              onBoardingVisited();
               customReplacementNavigate(context, "/signup");
             },
           ),
           GestureDetector(
             onTap: () {
+              onBoardingVisited();
               customReplacementNavigate(context, "/signIn");
             },
             child: const Text(

@@ -1,5 +1,5 @@
-import 'package:dalel_app/core/database/cache/cahche_helper.dart';
 import 'package:dalel_app/core/functions/navigation.dart';
+import 'package:dalel_app/features/on_boarding/presentation/views/funcutions/on_boarding.dart';
 import 'package:dalel_app/features/on_boarding/presentation/views/widgets/custom_nave_bar_skip.dart';
 import 'package:dalel_app/features/on_boarding/presentation/views/widgets/get_button_final%20_check.dart';
 import 'package:dalel_app/features/on_boarding/presentation/views/widgets/onboarding_widget_body.dart';
@@ -26,8 +26,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             const SizedBox(height: 40),
             CustomNaveBar(
               onTap: () {
-                CacheHelper()
-                    .saveData(key: "isOnBoardingIsVisited", value: true);
+                onBoardingVisited();
                 customReplacementNavigate(context, "/signup");
               },
             ),

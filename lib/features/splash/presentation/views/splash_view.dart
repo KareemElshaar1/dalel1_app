@@ -4,6 +4,7 @@ import 'package:dalel_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/functions/navigation.dart';
+import '../../../../core/services/sevice_locator.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -16,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     bool isOnBoardingIsVisited =
-        CacheHelper().getData(key: "isOnBoardingIsVisited") ?? false;
+        getIt<CacheHelper>().getData(key: "isOnBoardingIsVisited") ?? false;
     if (isOnBoardingIsVisited == true) {
       delayedNavigate(context, "/signup");
     } else {
